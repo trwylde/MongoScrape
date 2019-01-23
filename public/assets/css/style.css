@@ -1,0 +1,37 @@
+body {
+  background-color: #fafafa; 
+}
+h4{
+  color: white;
+}
+
+.hover:hover{
+  background-color: rgba(0,0,0,0.5);
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+.jumbotron {
+  background-color: rgba(248, 243, 85, 0);
+  background-image: url("../images/roman-kraft-260082-unsplash.jpg");
+  position: relative;
+  width: 100%;
+  height: 150px !important;
+  box-shadow: 10px 5px 20px 2px lightslategrey;
+  font-weight: 800;
+  text-shadow: 2px 2px 4px black, 0 0 25px rgb(111, 28, 150);
+}
+
+.jumbotron .overlay {
+  background: linear-gradient(#333, black);
+  position: absolute;
+  opacity: 0.7;
+  z-index: auto;
+}
+
+.container {
+  margin: 100px;
+}

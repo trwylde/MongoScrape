@@ -1,0 +1,87 @@
+<nav>
+  <div class="nav-wrapper jumbotron">
+    <ul class="left hide-on-med-and-down">
+      <a href="#" class="brand-logo center" style="position">Mongo Scrape<i class="fa fa-newspaper-o material-icons" style="height:auto;" aria-hidden="true"></i></a>
+      <li class="active"><a href="#">Home</a></li>
+      <li  class="modal-trigger savedArticles" href="#saveModal"><a>Saved</a></li>
+    </ul>
+    <ul class="hide-on-med-and-down valign-wrapper right">
+      <li><a class="waves-effect halfway-fab waves-effect waves-light hover searchArticle right"> Scrape <i class="material-icons right">add</i></a></li>
+    </ul>
+    <ul class="left hide-on-large-only">
+      <li class="modal-trigger savedArticles" href="#saveModal"><a>Saved</a></li>
+      <li><i class="fa fa-newspaper-o material-icons" style="height:auto;" aria-hidden="true"></i></li>
+    </ul>
+    <ul class="hide-on-large-only valign-wrapper right">
+      <li><a class=" waves-effect halfway-fab waves-effect waves-light hover searchArticle right"><i class="material-icons">add</i></a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Main Container -->
+<div class="container">
+    {{#each data}}
+      <div class="col s12 m7">
+        <h5 class="card-title teal-text">{{this.headline}}</h5>
+        <div class="card horizontal">
+          <div class="card-image">
+            <img src="{{this.imageURL}}">
+          </div>
+          <div class="card-stacked">
+            <div class="card-content">
+              <h4 class="teal-text darken-1">{{this.slug}}</h4>
+              <p>{{this.summary}}</p>
+            </div>
+            <div class="card-action">            
+              <a class="addArticle btn-floating halfway-fab waves-effect waves-light modal-trigger" style="z-index:101;" href="#modalMessage" data-headline="{{this.headline}} " data-imageURL="{{this.imageURL}}" data-url="{{this.url}}" data-summary="{{this.summary}}"
+              data-slug="{{this.slug}}"><i class="material-icons">add</i></a>
+              <p><a href="{{this.url}}" target="/blank" class="teal-text">Read Full Story Here</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+
+</div>
+
+<!-- Modals -->
+
+<!-- Message Modal -->
+<div id="modalMessage" class="modal waves-effect waves-green center" style="border:3px black solid height: 100%;">
+  <div class="modal-content teal">
+    <i class="fa fa-newspaper-o material-icons" style="height:auto;" aria-hidden="true"></i>
+  </div>
+</div>
+
+<!-- Saved Modal -->
+<div id="articleModal" class="modal modal-fixed-footer">
+  <div class="modal-content center">
+    <h4 style="color:black; margin-top: 20px; margin-bottom: 40px;">Article <span id="articleID"></span></h4>
+    <div class="articleNotes">
+      <div class="noteBox">
+      </div>
+    </div>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="textarea1" class="materialize-textarea"></textarea>
+            <label for="textarea1">Comment</label>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat hover addComment" style="color:white;">Submit</a>
+  </div>
+</div>
+
+<!-- Slide Modal -->
+<div id="saveModal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h4 style="color:black;">Saved</h4>
+    <ul class="collection">
+    </ul>
+  </div>
+</div>
